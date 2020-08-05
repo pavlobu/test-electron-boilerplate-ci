@@ -10,6 +10,7 @@
     "build-main": "cross-env NODE_ENV=production webpack --config ./configs/webpack.config.main.prod.babel.js --colors",
     "build-renderer": "cross-env NODE_ENV=production webpack --config ./configs/webpack.config.renderer.prod.babel.js --colors",
     "dev": "cross-env START_HOT=1 node -r @babel/register ./internals/scripts/CheckPortInUse.js && cross-env START_HOT=1 yarn start-renderer-dev",
+    "coverage": "cross-env BABEL_DISABLE_CACHE=1 jest --coverage",
     "electron-rebuild": "electron-rebuild --parallel --force --types prod,dev,optional --module-dir app",
     "lint": "cross-env NODE_ENV=development eslint . --cache --ext .js,.jsx,.ts,.tsx",
     "lint-fix": "yarn --silent lint --fix; exit 0",
@@ -163,6 +164,16 @@
     ],
     "setupFiles": [
       "./internals/scripts/CheckBuildsExist.js"
+    ],
+    "collectCoverageFrom": [
+      "**/*.{ts,tsx}",
+      "!**/node_modules/**",
+      "!**/dist/**",
+      "!**/dll/**",
+      "!**/internals/**",
+      "!**/coverage/**",
+      "!**/configs/**",
+      "!**/resources/**"
     ],
     "testResultsProcessor": "jest-sonar-reporter"
   },

@@ -1,3 +1,15 @@
+# to generate test coverage results
+
+```
+yarn coverage
+```
+
+# to run sonarqube scanner to put results to sonarqube
+
+```
+sonar-scanner
+```
+
 <img src="internals/img/erb-banner.png" width="100%" />
 
 <br>

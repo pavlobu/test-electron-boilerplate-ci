@@ -1,6 +1,6 @@
 .nyc_output
 .scannerwork/
-reports/
+test-reports/
 
 # Logs
 logs
