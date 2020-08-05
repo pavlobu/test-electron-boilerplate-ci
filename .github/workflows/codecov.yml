@@ -17,14 +17,25 @@ jobs:
       - name: yarn install
         run: |
           yarn install --frozen-lockfile
-      - name: yarn test with coverage
-        uses: GabrielBB/xvfb-action@v1.2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - name: yarn test with coverage
+      #   uses: GabrielBB/xvfb-action@v1.2
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   with:
+      #     run: |
+      #       npm run test
+      #       npm run coverage
+
+      - name: yarn test
+        uses: borales/actions-yarn@v2.3.0
         with:
-          run: |
-            npm run test
-            npm run coverage
+          cmd: test
+
+      - name: yarn coverage
+        uses: borales/actions-yarn@v2.3.0
+        with:
+          cmd: coverage
+
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1.0.12
         with:
