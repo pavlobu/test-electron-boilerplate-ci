@@ -17,16 +17,6 @@ jobs:
       - name: yarn install
         run: |
           yarn install --frozen-lockfile
-      - name: yarn test
-        uses: GabrielBB/xvfb-action@v1.2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          run: |
-            yarn package-ci
-            yarn lint
-            yarn tsc
-            yarn test
       - name: yarn coverage
         uses: GabrielBB/xvfb-action@v1.2
         env:
@@ -35,12 +25,10 @@ jobs:
           run: |
             yarn coverage
       - name: upload coverage to Codecov
-        uses: ./
+        uses: codecov/codecov-action@v1.0.12
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
         with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          uses: codecov/codecov-action@v1.0.12
-          file: ./coverage.xml
-          directory: ./coverage/
-          flags: unittests
-          name: codecov-umbrella
           fail_ci_if_error: true
+          run: |
+            bash <(curl -s https://codecov.io/bash)
