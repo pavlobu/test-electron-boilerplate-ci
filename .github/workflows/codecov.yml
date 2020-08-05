@@ -7,21 +7,27 @@ jobs:
       matrix:
         os: [ubuntu-18.04]
     steps:
-      - name: Checkout
-        uses: actions/checkout@master
-      - name: Install dependencies
-        run: yarn install
-      - name: Run tests and collect coverage
-        run: yarn test
+      - name: Check out Git repository
+        uses: actions/checkout@v1
+
+      - name: Install Node.js, NPM and Yarn
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - name: yarn install
+        run: |
+          yarn install --frozen-lockfile
+      - name: yarn coverage
+        with:
+          run: |
+            yarn coverage
       - name: Upload coverage to Codecov
         uses: ./
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          uses: codecov/codecov-action@v1.0.3
+          uses: codecov/codecov-action@v1.0.12
           file: ./coverage.xml
-          files: ./coverage1.xml,./coverage2.xml
-          directory: ./coverage/reports/
+          directory: ./coverage/
           flags: unittests
           name: codecov-umbrella
           fail_ci_if_error: true
-          path_to_write_report: ./coverage/codecov_report.gz
