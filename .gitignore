@@ -1,3 +1,6 @@
+.scannerwork/
+reports/
+
 # Logs
 logs
 *.log

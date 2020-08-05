@@ -163,7 +163,8 @@
     ],
     "setupFiles": [
       "./internals/scripts/CheckBuildsExist.js"
-    ]
+    ],
+    "testResultsProcessor": "jest-sonar-reporter"
   },
   "devDependencies": {
     "@amilajack/testcafe-browser-provider-electron": "^0.0.15-alpha.1",
@@ -244,6 +245,7 @@
     "husky": "^4.2.5",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.1.0",
+    "jest-sonar-reporter": "^2.0.0",
     "lint-staged": "^10.2.11",
     "mini-css-extract-plugin": "^0.9.0",
     "opencollective-postinstall": "^2.0.3",
@@ -329,5 +331,10 @@
     "hooks": {
       "pre-commit": "lint-staged"
     }
+  },
+  "jestSonar": {
+    "reportPath": "reports",
+    "reportFile": "test-reporter.xml",
+    "indent": 4
   }
 }
