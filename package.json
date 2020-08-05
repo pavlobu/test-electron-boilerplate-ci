@@ -345,7 +345,7 @@
     }
   },
   "jestSonar": {
-    "reportPath": "reports",
+    "reportPath": "test-reports",
     "reportFile": "test-reporter.xml",
     "indent": 4
   }
