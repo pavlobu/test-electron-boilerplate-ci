@@ -1,5 +1,7 @@
 ## CODECOV BADGE:
 
+very good commit
+
 [![codecov](https://codecov.io/gh/pavlobu/try-electron-react-boilerplate/branch/master/graph/badge.svg?token=K6FYVF0NZE)](https://codecov.io/gh/pavlobu/try-electron-react-boilerplate)
 
 # to generate test coverage results
