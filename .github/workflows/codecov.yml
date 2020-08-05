@@ -23,10 +23,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           run: |
-            yarn lint
-            yarn tsc
-            yarn test
-            yarn coverage
+            npm run test
+            npm run coverage
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1.0.12
         with:
