@@ -9,7 +9,7 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Run tests and collect coverage
-        run: yarn run test
+        run: yarn test
       - name: Upload coverage to Codecov
         uses: ./
         with:
