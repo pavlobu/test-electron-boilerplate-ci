@@ -28,8 +28,12 @@ jobs:
             yarn tsc
             yarn test
       - name: yarn coverage
-        run: |
-          yarn coverage
+        uses: GabrielBB/xvfb-action@v1.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          run: |
+            yarn coverage
       - name: upload coverage to Codecov
         uses: ./
         with:
