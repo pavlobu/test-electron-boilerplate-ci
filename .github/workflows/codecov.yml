@@ -2,7 +2,10 @@ name: Workflow for Codecov Action
 on: [push, pull_request]
 jobs:
   run:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-18.04]
     steps:
       - name: Checkout
         uses: actions/checkout@master
@@ -14,6 +17,7 @@ jobs:
         uses: ./
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
+          uses: codecov/codecov-action@v1.0.3
           file: ./coverage.xml
           files: ./coverage1.xml,./coverage2.xml
           directory: ./coverage/reports/
