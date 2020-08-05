@@ -17,7 +17,7 @@ jobs:
       - name: yarn install
         run: |
           yarn install --frozen-lockfile
-      - name: yarn test
+      - name: yarn test with coverage
         uses: GabrielBB/xvfb-action@v1.2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -27,14 +27,6 @@ jobs:
             yarn lint
             yarn tsc
             yarn test
-            yarn build-e2e
-            yarn test-e2e
-      - name: yarn coverage
-        uses: GabrielBB/xvfb-action@v1.2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          run: |
             yarn coverage
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1.0.12
