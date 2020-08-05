@@ -18,9 +18,8 @@ jobs:
         run: |
           yarn install --frozen-lockfile
       - name: yarn coverage
-        with:
-          run: |
-            yarn coverage
+        run: |
+          yarn coverage
       - name: Upload coverage to Codecov
         uses: ./
         with:
