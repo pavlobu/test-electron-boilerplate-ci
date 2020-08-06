@@ -1,4 +1,4 @@
-name: Test
+name: build and test
 
 on: [push, pull_request]
 
@@ -36,10 +36,10 @@ jobs:
       #   if: ${{ failure() }}
       #   run: npm install
 
-      - name: yarn package-ci
+      - name: yarn build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: yarn package-ci
+        run: yarn build
 
       - name: yarn lint
         env:
