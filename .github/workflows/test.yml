@@ -19,13 +19,17 @@ jobs:
         with:
           node-version: 14
 
-      # - name: yarn install
-      #   run: |
-      #     yarn install --frozen-lockfile
+      - name: set yarn to npmjs
+        run: |
+          yarn config set registry https://registry.npmjs.org
 
-      - uses: borales/actions-yarn@v2.3.0
-        with:
-          cmd: install --frozen-lockfile
+      - name: yarn install
+        run: |
+          yarn install --frozen-lockfile
+
+      # - uses: borales/actions-yarn@v2.3.0
+      #   with:
+      #     cmd: install --frozen-lockfile
 
       - name: yarn package-ci
         env:
