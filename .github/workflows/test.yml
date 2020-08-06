@@ -23,6 +23,11 @@ jobs:
         run: |
           yarn install --frozen-lockfile
 
+      - name: yarn install
+        if: ${{ failure() }}
+        run: |
+          yarn install
+
       - name: npm ci
         if: ${{ failure() }}
         run: npm ci
