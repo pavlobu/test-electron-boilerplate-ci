@@ -1,6 +1,6 @@
 ## BADGES:
 
-[![codecov](https://codecov.io/gh/pavlobu/try-electron-react-boilerplate/branch/master/graph/badge.svg?token=K6FYVF0NZE)](https://codecov.io/gh/pavlobu/try-electron-react-boilerplate) ![build and test](https://github.com/pavlobu/try-electron-react-boilerplate/workflows/Test/badge.svg) ![release all OS](https://github.com/pavlobu/try-electron-react-boilerplate/workflows/Release%20All%20OS/badge.svg)
+<!-- [![codecov](https://codecov.io/gh/pavlobu/try-electron-react-boilerplate/branch/master/graph/badge.svg?token=K6FYVF0NZE)](https://codecov.io/gh/pavlobu/try-electron-react-boilerplate) ![build and test](https://github.com/pavlobu/try-electron-react-boilerplate/workflows/Test/badge.svg) ![release all OS](https://github.com/pavlobu/try-electron-react-boilerplate/workflows/Release%20All%20OS/badge.svg) -->
 
 # to generate test coverage results
 
