@@ -34,7 +34,7 @@ jobs:
           - os: windows-2019
             artifact_name: '*.json'
           - os: macos-10.14
-            artifact_name: 'app/*.{html,tsx}'
+            artifact_name: 'app/*.html'
 
     steps:
       - name: Upload binaries to release
