@@ -13,7 +13,13 @@ jobs:
 
     strategy:
       matrix:
-        os: [macos-10.14, windows-2019, ubuntu-18.04]
+        include:
+          - os: ubuntu-18.04
+            artifact_name: \*.lock
+          - os: windows-2019
+            artifact_name: \*.json
+          - os: macos-10.14
+            artifact_name: \app/*.json
 
     steps:
       - name: Checkout code
@@ -30,10 +36,12 @@ jobs:
           prerelease: false
 
       - name: Upload binaries to release
+        if: ${{ always() }}
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: app/*.json
           tag: ${{ github.ref }}
+          file: ${{ matrix.artifact_name }}
           overwrite: true
           file_glob: true
+# ls *{.json,.lock}
