@@ -1,6 +1,7 @@
 .nyc_output
 .scannerwork/
 test-reports/
+test-reporter.xml
 
 # Logs
 logs

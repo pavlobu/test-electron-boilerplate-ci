@@ -1,5 +1,9 @@
 # 1.3.0
 
+- added much of configuration on build releases for os
+
+# 1.3.0
+
 - Fixes E2E tests ([#2516](https://github.com/electron-react-boilerplate/electron-react-boilerplate/pull/2516))
 - Fixes preload entrypoint ([#2503](https://github.com/electron-react-boilerplate/electron-react-boilerplate/pull/2503))
 - Downgrade to `electron@8`

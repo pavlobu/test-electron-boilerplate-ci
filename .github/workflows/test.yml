@@ -1,80 +1,69 @@
-# name: Test
+name: Test
 
-# on: [push, pull_request]
+on: [push, pull_request]
 
-# jobs:
-#   release:
-#     runs-on: ${{ matrix.os }}
+jobs:
+  release:
+    runs-on: ${{ matrix.os }}
 
-#     strategy:
-#       matrix:
-#         os: [macos-10.14, windows-2019, ubuntu-18.04]
+    strategy:
+      matrix:
+        os: [macos-10.14, windows-2019, ubuntu-18.04]
 
-#     steps:
-#       - name: Check out Git repository
-#         uses: actions/checkout@v2.3.1
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v2.3.1
 
-#       - name: Install Node.js, NPM and Yarn
-#         uses: actions/setup-node@v1.4.2
-#         with:
-#           node-version: 14
+      - name: Install Node.js, NPM and Yarn
+        uses: actions/setup-node@v1.4.2
+        with:
+          node-version: 14
 
-#       - name: yarn install --frozen-lockfile
-#         run: |
-#           yarn install --frozen-lockfile
+      - name: yarn install --frozen-lockfile
+        run: |
+          yarn install --frozen-lockfile
 
-#       - name: yarn install
-#         if: ${{ failure() }}
-#         run: |
-#           yarn install
+      # - name: yarn install
+      #   if: ${{ failure() }}
+      #   run: |
+      #     yarn install
 
-#       - name: npm ci
-#         if: ${{ failure() }}
-#         run: npm ci
+      # - name: npm ci
+      #   if: ${{ failure() }}
+      #   run: npm ci
 
-#       - name: npm install
-#         if: ${{ failure() }}
-#         run: npm install
+      # - name: npm install
+      #   if: ${{ failure() }}
+      #   run: npm install
 
-#       # - uses: borales/actions-yarn@v2.3.0
-#       #   with:
-#       #     cmd: install --frozen-lockfile
+      - name: yarn package-ci
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: yarn package-ci
 
-#       - name: yarn package-ci
-#         env:
-#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#         run: yarn package-ci
+      - name: yarn lint
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: yarn lint
 
-#       - name: list release UNIX
-#         run: ls release
+      - name: yarn tsc
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: yarn tsc
 
-#       - name: list release WINDOWS
-#         if: ${{ failure() }}
-#         run: dir release
+      - name: yarn test
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: yarn test
 
-#       - name: yarn lint
-#         env:
-#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#         run: yarn lint
+      - name: yarn build-e2e
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: yarn build-e2e
 
-#       - name: yarn tsc
-#         env:
-#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#         run: yarn tsc
-
-#       - name: yarn test
-#         env:
-#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#         run: yarn test
-
-#       - name: yarn build-e2e
-#         env:
-#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#         run: yarn build-e2e
-
-#       - name: yarn test-e2e
-#         uses: GabrielBB/xvfb-action@v1.2
-#         env:
-#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#         with:
-#           run: yarn test-e2e
+      - name: yarn test-e2e
+        uses: GabrielBB/xvfb-action@v1.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          run: yarn test-e2e
