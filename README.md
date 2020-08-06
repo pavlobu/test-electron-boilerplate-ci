@@ -1,6 +1,10 @@
 ## BADGES:
 
-[![codecov](https://codecov.io/gh/pavlobu/test-electron-boilerplate-ci/branch/master/graph/badge.svg)](https://codecov.io/gh/pavlobu/test-electron-boilerplate-ci) ![build and test](https://github.com/pavlobu/test-electron-boilerplate-ci/workflows/Test/badge.svg) ![.github/workflows/release.yml](https://github.com/pavlobu/test-electron-boilerplate-ci/workflows/.github/workflows/release.yml/badge.svg)
+[![codecov](https://codecov.io/gh/pavlobu/test-electron-boilerplate-ci/branch/master/graph/badge.svg)](https://codecov.io/gh/pavlobu/test-electron-boilerplate-ci)
+
+![build and test](https://github.com/pavlobu/test-electron-boilerplate-ci/workflows/Test/badge.svg)
+
+![.github/workflows/release.yml](https://github.com/pavlobu/test-electron-boilerplate-ci/workflows/.github/workflows/release.yml/badge.svg)
 
 # to generate test coverage results
 

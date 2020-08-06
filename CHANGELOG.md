@@ -1,4 +1,4 @@
-# 1.3.21
+# 1.3.22
 
 - added much of configuration on build releases for os
 
