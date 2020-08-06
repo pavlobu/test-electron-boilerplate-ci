@@ -2,7 +2,7 @@
 
 [![codecov](https://codecov.io/gh/pavlobu/try-electron-react-boilerplate/branch/master/graph/badge.svg?token=K6FYVF0NZE)](https://codecov.io/gh/pavlobu/try-electron-react-boilerplate)
 
-![build and test github workflows](https://github.com/pavlobu/try-electron-react-boilerplate/workflows/test/badge.svg)
+![build and test github workflows](https://github.com/pavlobu/try-electron-react-boilerplate/workflows/Test/badge.svg)
 
 # to generate test coverage results
 
