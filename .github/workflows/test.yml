@@ -45,6 +45,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: yarn package-ci
 
+      - name: list release UNIX
+        run: ls release
+
+      - name: list release WINDOWS
+        if: ${{ failure() }}
+        run: dir release
+
       - name: yarn lint
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
