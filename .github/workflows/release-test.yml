@@ -7,20 +7,8 @@ on:
 name: TEST Release
 
 jobs:
-  build:
-    name: TEST Release
-    runs-on: ${{ matrix.os }}
-
-    strategy:
-      matrix:
-        include:
-          - os: ubuntu-18.04
-            artifact_name: '*.lock'
-          - os: windows-2019
-            artifact_name: '*.json'
-          - os: macos-10.14
-            artifact_name: 'app/*.json'
-
+  release:
+    runs-on: ubuntu-18.04
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -34,7 +22,21 @@ jobs:
           release_name: Release ${{ github.ref }}
           draft: false
           prerelease: false
+  build:
+    name: TEST Release
+    runs-on: ${{ matrix.os }}
 
+    strategy:
+      matrix:
+        include:
+          - os: ubuntu-18.04
+            artifact_name: '*.lock'
+          - os: windows-2019
+            artifact_name: '*.json'
+          - os: macos-10.14
+            artifact_name: 'app/*.{html,tsx}'
+
+    steps:
       - name: Upload binaries to release
         if: ${{ always() }}
         uses: svenstaro/upload-release-action@v2
