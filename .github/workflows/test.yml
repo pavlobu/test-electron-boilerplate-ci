@@ -19,10 +19,6 @@ jobs:
         with:
           node-version: 14
 
-      - name: set yarn to npmjs
-        run: |
-          yarn config set registry https://registry.npmjs.org
-
       - name: yarn install --frozen-lockfile
         run: |
           yarn install --frozen-lockfile
