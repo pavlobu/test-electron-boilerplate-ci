@@ -32,7 +32,7 @@ jobs:
           - os: ubuntu-18.04
             artifact_name: '*.lock'
           - os: windows-2019
-            artifact_name: '*.json'
+            artifact_name: '{*.json,*.md}'
           - os: macos-10.14
             artifact_name: 'app/*.html'
 
