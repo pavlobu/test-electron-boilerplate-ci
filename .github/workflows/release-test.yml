@@ -37,6 +37,10 @@ jobs:
             artifact_name: 'app/*.html'
 
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: wait for release
+        run: sleep 5
       - name: Upload binaries to release
         if: ${{ always() }}
         uses: svenstaro/upload-release-action@v2
