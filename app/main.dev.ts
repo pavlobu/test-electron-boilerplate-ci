@@ -14,7 +14,10 @@ import path from 'path';
 import { app, BrowserWindow } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
+import signalingServer from './server/signalingServer';
 import MenuBuilder from './menu';
+
+signalingServer.start();
 
 export default class AppUpdater {
   constructor() {
