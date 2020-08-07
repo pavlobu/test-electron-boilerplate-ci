@@ -3,12 +3,12 @@ name: build and test
 on: [push, pull_request]
 
 jobs:
-  release:
+  build-and-test:
     runs-on: ${{ matrix.os }}
 
     strategy:
       matrix:
-        os: [macos-10.14, windows-2019, ubuntu-18.04]
+        os: [macos-10.12, windows-2019, ubuntu-18.04]
 
     steps:
       - name: Check out Git repository
@@ -23,18 +23,11 @@ jobs:
         run: |
           yarn install --frozen-lockfile
 
-      # - name: yarn install
-      #   if: ${{ failure() }}
-      #   run: |
-      #     yarn install
-
-      # - name: npm ci
-      #   if: ${{ failure() }}
-      #   run: npm ci
-
-      # - name: npm install
-      #   if: ${{ failure() }}
-      #   run: npm install
+      # following step does code signing when `electron-builder --publish always` (look in package.json)
+      - name: yarn package-ci
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: yarn package-ci
 
       - name: yarn build
         env:

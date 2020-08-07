@@ -4,10 +4,10 @@ on:
     tags:
       - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
 
-name: Release All OS
+name: release all os -- no code signing
 
 jobs:
-  release:
+  create-release:
     runs-on: ubuntu-18.04
     steps:
       - name: Checkout code
@@ -23,7 +23,7 @@ jobs:
           draft: false
           prerelease: false
 
-  build:
+  release:
     name: Release
     runs-on: ${{ matrix.os }}
 
