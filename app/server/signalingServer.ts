@@ -1,5 +1,6 @@
 import { Server } from 'http';
-import express, { Request, Response, NextFunction } from 'express';
+// import express, { Request, Response, NextFunction } from 'express';
+import express from 'express';
 import getRandomPort from '../utils/server/getRandomPort';
 // import * as bodyParser from "body-parser";
 // import express from "express";
@@ -43,14 +44,14 @@ class SignalingServer {
     // this.app.use(bodyParser.urlencoded({ extended: false }));
     // responde with indented JSON string
     // this.app.set("json spaces", 2);
-    this.expressApp.get('/', (req, res) => {
+    this.expressApp.get('/', (_, res) => {
       console.log(this.count);
       this.count += 1;
       res.status(200);
       res.write('Hello World');
       res.send();
     });
-    this.expressApp.get('/favicon.ico', (req, res) => {
+    this.expressApp.get('/favicon.ico', (_, res) => {
       res.status(204);
       res.send();
     });

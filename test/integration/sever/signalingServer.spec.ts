@@ -1,9 +1,5 @@
 import 'regenerator-runtime/runtime';
-import getPort from 'get-port';
 import signalingServer from '../../../app/server/signalingServer';
-import getRandomPort from '../../../app/utils/server/getRandomPort';
-
-// jest.mock('../../../app/utils/server/getRandomPort');
 
 describe('Signaling Server', () => {
   beforeEach(async () => {
@@ -28,16 +24,4 @@ describe('Signaling Server', () => {
     expect(port).toBeGreaterThanOrEqual(2000);
     expect(port).toBeLessThanOrEqual(9999);
   });
-
-  // it('should have exact port number as mock of getRandomPort provided', async () => {
-  //   const expectedPort = 3333;
-  //   await startServerWithMockedPort(expectedPort);
-  //   expect(signalingServer.server.address().port).toBe(expectedPort);
-  // });
-
-  // const startServerWithMockedPort = async (mockedPort) => {
-  //   signalingServer.stop();
-  //   getRandomPort.mockReturnValue(Promise.resolve(mockedPort));
-  //   await signalingServer.start();
-  // };
 });

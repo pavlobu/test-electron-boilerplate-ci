@@ -1,5 +1,4 @@
 import 'regenerator-runtime/runtime';
-import getPort from 'get-port';
 import signalingServer from '../../../app/server/signalingServer';
 import getRandomPort from '../../../app/utils/server/getRandomPort';
 
