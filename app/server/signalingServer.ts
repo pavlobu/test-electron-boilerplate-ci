@@ -1,6 +1,6 @@
 import { Server } from 'http';
 import express, { Request, Response, NextFunction } from 'express';
-
+import getRandomPort from '../utils/server/getRandomPort';
 // import * as bodyParser from "body-parser";
 // import express from "express";
 // import { Routes } from "./routes";
@@ -13,6 +13,8 @@ class SignalingServer {
   public count: number;
 
   public server: Server;
+
+  public port: number;
   // public routePrv: Routes = new Routes();
 
   constructor() {
@@ -20,11 +22,14 @@ class SignalingServer {
     this.count = 0;
     this.config();
     this.server = new Server();
+    this.port = 3131;
     // this.routePrv.routes(this.app);
   }
 
-  public start(): void {
-    this.server = this.expressApp.listen(3000);
+  public async start(): Promise<Server> {
+    this.port = await getRandomPort();
+    this.server = this.expressApp.listen(this.port);
+    return this.server;
   }
 
   public stop(): void {
